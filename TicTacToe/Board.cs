@@ -77,5 +77,61 @@ namespace TicTacToe
 
             return newBoard;
         }
+
+        public bool NoWinner(out char? winner)
+        {
+            bool result = true;
+            winner = null;
+            //TODO: adjust this to accomodate non-standard thiss
+            if (this.Tiles[0].OccupiedBy != null && this.Tiles[0].OccupiedBy == this.Tiles[1].OccupiedBy && this.Tiles[1].OccupiedBy == this.Tiles[2].OccupiedBy)
+            {
+                winner = this.Tiles[0].OccupiedBy;
+                result = false;
+            }
+
+            if (this.Tiles[3].OccupiedBy != null && this.Tiles[3].OccupiedBy == this.Tiles[4].OccupiedBy && this.Tiles[4].OccupiedBy == this.Tiles[5].OccupiedBy)
+            {
+                winner = this.Tiles[0].OccupiedBy;
+                result = false;
+            }
+
+            if (this.Tiles[6].OccupiedBy != null && this.Tiles[6].OccupiedBy == this.Tiles[7].OccupiedBy && this.Tiles[7].OccupiedBy == this.Tiles[8].OccupiedBy)
+            {
+                winner = this.Tiles[0].OccupiedBy;
+                result = false;
+            }
+
+            if (this.Tiles[0].OccupiedBy != null && this.Tiles[0].OccupiedBy == this.Tiles[3].OccupiedBy && this.Tiles[3].OccupiedBy == this.Tiles[6].OccupiedBy)
+            {
+                winner = this.Tiles[0].OccupiedBy;
+                result = false;
+            }
+
+            if (this.Tiles[1].OccupiedBy != null && this.Tiles[1].OccupiedBy == this.Tiles[4].OccupiedBy && this.Tiles[4].OccupiedBy == this.Tiles[7].OccupiedBy)
+            {
+                winner = this.Tiles[0].OccupiedBy;
+                result = false;
+            }
+
+            if (this.Tiles[2].OccupiedBy != null && this.Tiles[2].OccupiedBy == this.Tiles[5].OccupiedBy && this.Tiles[5].OccupiedBy == this.Tiles[8].OccupiedBy)
+            {
+                winner = this.Tiles[0].OccupiedBy;
+                result = false;
+            }
+
+            if (this.Tiles[0].OccupiedBy != null && this.Tiles[0].OccupiedBy == this.Tiles[4].OccupiedBy && this.Tiles[4].OccupiedBy == this.Tiles[8].OccupiedBy)
+            {
+                winner = this.Tiles[0].OccupiedBy;
+                result = false;
+            }
+
+            if (this.Tiles[2].OccupiedBy != null && this.Tiles[2].OccupiedBy == this.Tiles[4].OccupiedBy && this.Tiles[4].OccupiedBy == this.Tiles[6].OccupiedBy)
+            {
+                winner = this.Tiles[0].OccupiedBy;
+                result = false;
+            }
+
+            return result;
+        }
     }
 }

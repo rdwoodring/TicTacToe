@@ -25,8 +25,15 @@ namespace TicTacToe.Opponents
 
             foreach (Tile tile in openTiles)
             {
-
+                EvaluatePath((Board)this.Board.Clone());
             }
+
+            throw new NotImplementedException();
+        }
+
+        private void EvaluatePath(Board board)
+        {
+
 
             throw new NotImplementedException();
         }

@@ -71,7 +71,7 @@ namespace TicTacToe
 
             int movesCount = 0;
 
-            while (movesCount <= board.Tiles.Count && NoWinner())
+            while (movesCount <= board.Tiles.Count && board.NoWinner(out winner))
             {
                 if (playerFirst)
                 {
@@ -119,60 +119,7 @@ namespace TicTacToe
             Console.ReadKey();
         }
 
-        private static bool NoWinner()
-        {
-            bool result = true;
-            //TODO: adjust this to accomodate non-standard boards
-            if (board.Tiles[0].OccupiedBy != null && board.Tiles[0].OccupiedBy == board.Tiles[1].OccupiedBy && board.Tiles[1].OccupiedBy == board.Tiles[2].OccupiedBy)
-            {
-                winner = board.Tiles[0].OccupiedBy;
-                result = false;
-            }
-
-            if (board.Tiles[3].OccupiedBy != null && board.Tiles[3].OccupiedBy == board.Tiles[4].OccupiedBy && board.Tiles[4].OccupiedBy == board.Tiles[5].OccupiedBy)
-            {
-                winner = board.Tiles[0].OccupiedBy;
-                result = false;
-            }
-
-            if (board.Tiles[6].OccupiedBy != null && board.Tiles[6].OccupiedBy == board.Tiles[7].OccupiedBy && board.Tiles[7].OccupiedBy == board.Tiles[8].OccupiedBy)
-            {
-                winner = board.Tiles[0].OccupiedBy;
-                result = false;
-            }
-
-            if (board.Tiles[0].OccupiedBy != null && board.Tiles[0].OccupiedBy == board.Tiles[3].OccupiedBy && board.Tiles[3].OccupiedBy == board.Tiles[6].OccupiedBy)
-            {
-                winner = board.Tiles[0].OccupiedBy;
-                result = false;
-            }
-
-            if (board.Tiles[1].OccupiedBy != null && board.Tiles[1].OccupiedBy == board.Tiles[4].OccupiedBy && board.Tiles[4].OccupiedBy == board.Tiles[7].OccupiedBy)
-            {
-                winner = board.Tiles[0].OccupiedBy;
-                result = false;
-            }
-
-            if (board.Tiles[2].OccupiedBy != null && board.Tiles[2].OccupiedBy == board.Tiles[5].OccupiedBy && board.Tiles[5].OccupiedBy == board.Tiles[8].OccupiedBy)
-            {
-                winner = board.Tiles[0].OccupiedBy;
-                result = false;
-            }
-
-            if (board.Tiles[0].OccupiedBy != null && board.Tiles[0].OccupiedBy == board.Tiles[4].OccupiedBy && board.Tiles[4].OccupiedBy == board.Tiles[8].OccupiedBy)
-            {
-                winner = board.Tiles[0].OccupiedBy;
-                result = false;
-            }
-
-            if (board.Tiles[2].OccupiedBy != null && board.Tiles[2].OccupiedBy == board.Tiles[4].OccupiedBy && board.Tiles[4].OccupiedBy == board.Tiles[6].OccupiedBy)
-            {
-                winner = board.Tiles[0].OccupiedBy;
-                result = false;
-            }
-
-            return result;
-        }
+        
 
         private static void CPUMove()
         {
